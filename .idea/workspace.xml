@@ -59,7 +59,6 @@
       <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
@@ -109,25 +108,8 @@
       <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dao/RoutineDao.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dao/SessionDao.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database/AppDatabase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database/DatabaseProvider.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model/ExerciseEntity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model/ExerciseLogEntity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model/RoutineDayEntity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model/RoutineEntity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model/SessionEntity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/adapters/RoutineAdapter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/AddTrainingFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/HomeFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/PlannerFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/ProfileFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/StatsFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/routine/CreateRoutineFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/fragments/routine/CreateRoutineStartFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewmodel/RoutineViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +125,44 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FitTrackPlus" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FitTrackPlus" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FitTrackPlus" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FitTrackPlus" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -154,23 +174,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$" value="feature/registro-entrenamiento" />
         <entry key="$PROJECT_DIR$/app/src/main/java/com/alvarocervantes/fittrackplus" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "alvaro944"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alvaro944&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/alvaro944/FitTrackPlus.git",
-    "accountId": "32d2aaa2-69f0-4bd4-b880-4a100f7da09a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/alvaro944/FitTrackPlus.git&quot;,
+    &quot;accountId&quot;: &quot;32d2aaa2-69f0-4bd4-b880-4a100f7da09a&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -190,7 +211,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "feature/registro-entrenamiento",
+    "git-widget-placeholder": "feature/registro-entrenamiento-mod",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Alvaro/AndroidStudioProjects/FitTrackPlus",
     "project.structure.last.edited": "Modules",
