@@ -1,0 +1,3 @@
+com.alvarocervantes.fittrackplus.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

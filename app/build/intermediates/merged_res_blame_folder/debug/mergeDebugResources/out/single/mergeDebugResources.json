@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_item_exercise_input.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_exercise_input.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_create_routine.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_create_routine.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_stats.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_stats.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_add_training.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_add_training.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_routine_list.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_routine_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_item_routine_card.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_routine_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.alvarocervantes.fittrackplus.app-debug-49:/navigation_nav_graph.xml.flat",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_create_routine_start.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_create_routine_start.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_item_routine_day.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_routine_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_register_training.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_register_training.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\layout_fragment_planner.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_planner.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-debug-49:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    }
+]

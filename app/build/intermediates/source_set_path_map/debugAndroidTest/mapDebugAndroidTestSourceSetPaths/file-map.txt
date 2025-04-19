@@ -1,0 +1,6 @@
+com.alvarocervantes.fittrackplus.test.app-tracing-1.2.0-0 C:\Users\Alvaro\.gradle\caches\transforms-4\8bf60eee3a3bfdd8b8cedbaf327ae0f1\transformed\tracing-1.2.0\res
+com.alvarocervantes.fittrackplus.test.app-core-1.6.1-1 C:\Users\Alvaro\.gradle\caches\transforms-4\e76062927eb77e597ef117aa6d45ce19\transformed\core-1.6.1\res
+com.alvarocervantes.fittrackplus.test.app-androidTest-2 C:\Users\Alvaro\AndroidStudioProjects\FitTrackPlus\app\build\generated\res\resValues\androidTest\debug
+com.alvarocervantes.fittrackplus.test.app-mergeDebugAndroidTestResources-3 C:\Users\Alvaro\AndroidStudioProjects\FitTrackPlus\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.alvarocervantes.fittrackplus.test.app-mergeDebugAndroidTestResources-4 C:\Users\Alvaro\AndroidStudioProjects\FitTrackPlus\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.alvarocervantes.fittrackplus.test.app-debugAndroidTest-5 C:\Users\Alvaro\AndroidStudioProjects\FitTrackPlus\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

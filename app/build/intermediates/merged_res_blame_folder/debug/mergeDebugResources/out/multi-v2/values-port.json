@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-47:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Alvaro\\.gradle\\caches\\transforms-4\\6dda6f8d320880fbc6c229ea574b5ff1\\transformed\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

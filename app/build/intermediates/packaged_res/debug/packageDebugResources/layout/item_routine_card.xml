@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRoutine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp"
+    android:layout_marginHorizontal="12dp"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/textRoutineName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la rutina"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/textRoutineDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 días"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonEditRoutine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Editar" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
