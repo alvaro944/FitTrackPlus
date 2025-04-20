@@ -39,7 +39,7 @@ public final class SessionDao_Impl implements SessionDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `sessions` (`id`,`routineId`,`dayId`,`date`,`comment`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `sessions` (`id`,`routineId`,`dayId`,`date`,`week`,`comment`) VALUES (nullif(?, 0),?,?,?,?,?)";
       }
 
       @Override
@@ -53,10 +53,11 @@ public final class SessionDao_Impl implements SessionDao {
         } else {
           statement.bindString(4, entity.getDate());
         }
+        statement.bindLong(5, entity.getWeek());
         if (entity.getComment() == null) {
-          statement.bindNull(5);
+          statement.bindNull(6);
         } else {
-          statement.bindString(5, entity.getComment());
+          statement.bindString(6, entity.getComment());
         }
       }
     };
@@ -86,7 +87,8 @@ public final class SessionDao_Impl implements SessionDao {
   }
 
   @Override
-  public Object insertSession(final SessionEntity session, final Continuation<? super Long> arg1) {
+  public Object insertSession(final SessionEntity session,
+      final Continuation<? super Long> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Long>() {
       @Override
       @NonNull
@@ -100,12 +102,12 @@ public final class SessionDao_Impl implements SessionDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override
   public Object insertExerciseLog(final ExerciseLogEntity log,
-      final Continuation<? super Long> arg1) {
+      final Continuation<? super Long> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Long>() {
       @Override
       @NonNull
@@ -119,11 +121,11 @@ public final class SessionDao_Impl implements SessionDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override
-  public Object getAllSessions(final Continuation<? super List<SessionEntity>> arg0) {
+  public Object getAllSessions(final Continuation<? super List<SessionEntity>> $completion) {
     final String _sql = "SELECT * FROM sessions ORDER BY date DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -137,6 +139,7 @@ public final class SessionDao_Impl implements SessionDao {
           final int _cursorIndexOfRoutineId = CursorUtil.getColumnIndexOrThrow(_cursor, "routineId");
           final int _cursorIndexOfDayId = CursorUtil.getColumnIndexOrThrow(_cursor, "dayId");
           final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfWeek = CursorUtil.getColumnIndexOrThrow(_cursor, "week");
           final int _cursorIndexOfComment = CursorUtil.getColumnIndexOrThrow(_cursor, "comment");
           final List<SessionEntity> _result = new ArrayList<SessionEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -153,13 +156,15 @@ public final class SessionDao_Impl implements SessionDao {
             } else {
               _tmpDate = _cursor.getString(_cursorIndexOfDate);
             }
+            final int _tmpWeek;
+            _tmpWeek = _cursor.getInt(_cursorIndexOfWeek);
             final String _tmpComment;
             if (_cursor.isNull(_cursorIndexOfComment)) {
               _tmpComment = null;
             } else {
               _tmpComment = _cursor.getString(_cursorIndexOfComment);
             }
-            _item = new SessionEntity(_tmpId,_tmpRoutineId,_tmpDayId,_tmpDate,_tmpComment);
+            _item = new SessionEntity(_tmpId,_tmpRoutineId,_tmpDayId,_tmpDate,_tmpWeek,_tmpComment);
             _result.add(_item);
           }
           return _result;
@@ -168,12 +173,12 @@ public final class SessionDao_Impl implements SessionDao {
           _statement.release();
         }
       }
-    }, arg0);
+    }, $completion);
   }
 
   @Override
   public Object getSessionsByRoutine(final long routineId,
-      final Continuation<? super List<SessionEntity>> arg1) {
+      final Continuation<? super List<SessionEntity>> $completion) {
     final String _sql = "SELECT * FROM sessions WHERE routineId = ? ORDER BY date DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -189,6 +194,7 @@ public final class SessionDao_Impl implements SessionDao {
           final int _cursorIndexOfRoutineId = CursorUtil.getColumnIndexOrThrow(_cursor, "routineId");
           final int _cursorIndexOfDayId = CursorUtil.getColumnIndexOrThrow(_cursor, "dayId");
           final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfWeek = CursorUtil.getColumnIndexOrThrow(_cursor, "week");
           final int _cursorIndexOfComment = CursorUtil.getColumnIndexOrThrow(_cursor, "comment");
           final List<SessionEntity> _result = new ArrayList<SessionEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -205,13 +211,15 @@ public final class SessionDao_Impl implements SessionDao {
             } else {
               _tmpDate = _cursor.getString(_cursorIndexOfDate);
             }
+            final int _tmpWeek;
+            _tmpWeek = _cursor.getInt(_cursorIndexOfWeek);
             final String _tmpComment;
             if (_cursor.isNull(_cursorIndexOfComment)) {
               _tmpComment = null;
             } else {
               _tmpComment = _cursor.getString(_cursorIndexOfComment);
             }
-            _item = new SessionEntity(_tmpId,_tmpRoutineId,_tmpDayId,_tmpDate,_tmpComment);
+            _item = new SessionEntity(_tmpId,_tmpRoutineId,_tmpDayId,_tmpDate,_tmpWeek,_tmpComment);
             _result.add(_item);
           }
           return _result;
@@ -220,12 +228,12 @@ public final class SessionDao_Impl implements SessionDao {
           _statement.release();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override
   public Object getLogsForSession(final long sessionId,
-      final Continuation<? super List<ExerciseLogEntity>> arg1) {
+      final Continuation<? super List<ExerciseLogEntity>> $completion) {
     final String _sql = "SELECT * FROM exercise_logs WHERE sessionId = ? ORDER BY exerciseId, seriesNumber";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -274,12 +282,12 @@ public final class SessionDao_Impl implements SessionDao {
           _statement.release();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override
   public Object getLogsByExerciseOrdered(final long exerciseId,
-      final Continuation<? super List<ExerciseLogEntity>> arg1) {
+      final Continuation<? super List<ExerciseLogEntity>> $completion) {
     final String _sql = "\n"
             + "    SELECT el.* FROM exercise_logs el\n"
             + "    INNER JOIN sessions s ON el.sessionId = s.id\n"
@@ -332,7 +340,7 @@ public final class SessionDao_Impl implements SessionDao {
           _statement.release();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @NonNull

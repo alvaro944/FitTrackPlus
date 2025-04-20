@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -24,13 +25,18 @@ public final class FragmentRegisterTrainingBinding implements ViewBinding {
   public final Button buttonSaveTraining;
 
   @NonNull
-  public final LinearLayout containerExercisesToLog;
+  public final LinearLayout containerRegisterTraining;
+
+  @NonNull
+  public final TextView textTrainingHeader;
 
   private FragmentRegisterTrainingBinding(@NonNull ScrollView rootView,
-      @NonNull Button buttonSaveTraining, @NonNull LinearLayout containerExercisesToLog) {
+      @NonNull Button buttonSaveTraining, @NonNull LinearLayout containerRegisterTraining,
+      @NonNull TextView textTrainingHeader) {
     this.rootView = rootView;
     this.buttonSaveTraining = buttonSaveTraining;
-    this.containerExercisesToLog = containerExercisesToLog;
+    this.containerRegisterTraining = containerRegisterTraining;
+    this.textTrainingHeader = textTrainingHeader;
   }
 
   @Override
@@ -66,14 +72,20 @@ public final class FragmentRegisterTrainingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.containerExercisesToLog;
-      LinearLayout containerExercisesToLog = ViewBindings.findChildViewById(rootView, id);
-      if (containerExercisesToLog == null) {
+      id = R.id.containerRegisterTraining;
+      LinearLayout containerRegisterTraining = ViewBindings.findChildViewById(rootView, id);
+      if (containerRegisterTraining == null) {
+        break missingId;
+      }
+
+      id = R.id.textTrainingHeader;
+      TextView textTrainingHeader = ViewBindings.findChildViewById(rootView, id);
+      if (textTrainingHeader == null) {
         break missingId;
       }
 
       return new FragmentRegisterTrainingBinding((ScrollView) rootView, buttonSaveTraining,
-          containerExercisesToLog);
+          containerRegisterTraining, textTrainingHeader);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

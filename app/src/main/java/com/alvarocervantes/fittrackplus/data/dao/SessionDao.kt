@@ -27,4 +27,5 @@ interface SessionDao {
 """)
     suspend fun getLogsByExerciseOrdered(exerciseId: Long): List<ExerciseLogEntity>
 
+
 }
