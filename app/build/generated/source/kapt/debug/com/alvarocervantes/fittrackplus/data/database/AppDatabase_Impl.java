@@ -41,10 +41,10 @@ public final class AppDatabase_Impl extends AppDatabase {
         db.execSQL("CREATE TABLE IF NOT EXISTS `routines` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `routine_days` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `routineId` INTEGER NOT NULL, `dayName` TEXT NOT NULL, `dayOrder` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `exercises` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dayId` INTEGER NOT NULL, `name` TEXT NOT NULL, `series` INTEGER NOT NULL, `reps` TEXT NOT NULL)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `sessions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `routineId` INTEGER NOT NULL, `dayId` INTEGER NOT NULL, `date` TEXT NOT NULL, `comment` TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `sessions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `routineId` INTEGER NOT NULL, `dayId` INTEGER NOT NULL, `date` TEXT NOT NULL, `week` INTEGER NOT NULL, `comment` TEXT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `exercise_logs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `sessionId` INTEGER NOT NULL, `exerciseId` INTEGER NOT NULL, `seriesNumber` INTEGER NOT NULL, `weight` REAL NOT NULL, `repetitions` INTEGER NOT NULL, `comment` TEXT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1b9652fbdf7838b370a095edad2efa78')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8bf41dd79f80c8aa1a238a955776e303')");
       }
 
       @Override
@@ -138,11 +138,12 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoExercises + "\n"
                   + " Found:\n" + _existingExercises);
         }
-        final HashMap<String, TableInfo.Column> _columnsSessions = new HashMap<String, TableInfo.Column>(5);
+        final HashMap<String, TableInfo.Column> _columnsSessions = new HashMap<String, TableInfo.Column>(6);
         _columnsSessions.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSessions.put("routineId", new TableInfo.Column("routineId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSessions.put("dayId", new TableInfo.Column("dayId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSessions.put("date", new TableInfo.Column("date", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSessions.put("week", new TableInfo.Column("week", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSessions.put("comment", new TableInfo.Column("comment", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysSessions = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesSessions = new HashSet<TableInfo.Index>(0);
@@ -172,7 +173,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "1b9652fbdf7838b370a095edad2efa78", "cf4a1a04491c87223457cf6f767a6e63");
+    }, "8bf41dd79f80c8aa1a238a955776e303", "070d4cbc9c588017a8779f81c2fdb7ba");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

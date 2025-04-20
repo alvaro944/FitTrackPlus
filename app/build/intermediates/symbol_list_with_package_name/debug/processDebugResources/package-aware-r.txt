@@ -1928,8 +1928,9 @@ id collapseActionView
 id confirm_button
 id container
 id containerExercises
-id containerExercisesToLog
+id containerRegisterTraining
 id containerRoutineDays
+id containerSeries
 id content
 id contentPanel
 id contiguous
@@ -1969,6 +1970,8 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id editPeso
+id editReps
 id editTextDayName
 id editTextExerciseName
 id editTextReps
@@ -2221,12 +2224,14 @@ id test_radiobutton_app_button_tint
 id text
 id text2
 id textEnd
+id textExerciseName
 id textRoutineDays
 id textRoutineName
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textTrainingHeader
 id text_home
 id text_input_end_icon
 id text_input_error_icon
@@ -2367,8 +2372,10 @@ layout fragment_stats
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_exercise_input
+layout item_exercise_log_input
 layout item_routine_card
 layout item_routine_day
+layout item_serie_input
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

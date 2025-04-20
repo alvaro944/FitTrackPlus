@@ -1,58 +1,58 @@
 [
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_register_training.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_register_training.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_home.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\item_routine_card.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_routine_card.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_stats.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_stats.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_create_routine.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_create_routine.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/item_routine_day.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/item_routine_day.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_create_routine_start.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_create_routine_start.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/item_exercise_log_input.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/item_exercise_log_input.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\item_routine_day.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_routine_day.xml"
-    },
-    {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\item_exercise_input.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\item_exercise_input.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_register_training.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_register_training.xml"
     },
     {
         "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/item_routine_card.xml",
         "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/item_routine_card.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_stats.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_stats.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/item_exercise_input.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/item_exercise_input.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\activity_main.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/item_serie_input.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/item_serie_input.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_routine_list.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_routine_list.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_add_training.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_add_training.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_add_training.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_add_training.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_create_routine.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_create_routine.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_profile.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_profile.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/activity_main.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_planner.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_planner.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_create_routine_start.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_create_routine_start.xml"
     },
     {
-        "merged": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\Alvaro\\.gradle\\daemon\\8.7\\com.alvarocervantes.fittrackplus.app-main-51:\\layout\\fragment_home.xml"
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_profile.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.alvarocervantes.fittrackplus.app-mergeDebugResources-48:/layout/fragment_planner.xml",
+        "source": "com.alvarocervantes.fittrackplus.app-main-51:/layout/fragment_planner.xml"
     }
 ]

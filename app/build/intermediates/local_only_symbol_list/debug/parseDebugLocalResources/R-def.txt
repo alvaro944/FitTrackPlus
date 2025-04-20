@@ -22,10 +22,13 @@ id buttonSaveRoutine
 id buttonSaveTraining
 id cardRoutine
 id containerExercises
-id containerExercisesToLog
+id containerRegisterTraining
 id containerRoutineDays
+id containerSeries
 id createRoutineFragment
 id createRoutineStartFragment
+id editPeso
+id editReps
 id editTextDayName
 id editTextExerciseName
 id editTextReps
@@ -41,8 +44,10 @@ id profileFragment
 id recyclerRoutines
 id registerTrainingFragment
 id statsFragment
+id textExerciseName
 id textRoutineDays
 id textRoutineName
+id textTrainingHeader
 id text_home
 id text_planner
 layout activity_main
@@ -55,8 +60,10 @@ layout fragment_profile
 layout fragment_register_training
 layout fragment_stats
 layout item_exercise_input
+layout item_exercise_log_input
 layout item_routine_card
 layout item_routine_day
+layout item_serie_input
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round

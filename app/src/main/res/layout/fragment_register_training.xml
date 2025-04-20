@@ -1,16 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
     <LinearLayout
-        android:id="@+id/containerExercisesToLog"
+        android:id="@+id/containerRegisterTraining"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Aquí se generarán los ejercicios de la sesión -->
+        <!-- 🆕 Encabezado informativo de rutina y día -->
+        <TextView
+            android:id="@+id/textTrainingHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entrenando: "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"/>
+
+        <!-- Ejercicios se generan dinámicamente aquí -->
 
         <Button
             android:id="@+id/buttonSaveTraining"
