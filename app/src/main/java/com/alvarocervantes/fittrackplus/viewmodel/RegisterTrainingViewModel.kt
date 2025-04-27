@@ -73,6 +73,10 @@ class RegisterTrainingViewModel(application: Application) : AndroidViewModel(app
         val format = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
         return format.format(date)
     }
+    suspend fun getSessionsForRoutine(routineId: Long): List<SessionEntity> {
+        return sessionDao.getSessionsByRoutine(routineId)
+    }
+
 
 
 }

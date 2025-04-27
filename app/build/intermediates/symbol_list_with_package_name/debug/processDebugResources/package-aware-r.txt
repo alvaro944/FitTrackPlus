@@ -1904,6 +1904,7 @@ id buttonIrARegistrarEntreno
 id buttonPanel
 id buttonSaveRoutine
 id buttonSaveTraining
+id buttonViewHistory
 id cancel_button
 id cardRoutine
 id center
@@ -1931,6 +1932,7 @@ id containerExercises
 id containerRegisterTraining
 id containerRoutineDays
 id containerSeries
+id containerTrainingHistory
 id content
 id contentPanel
 id contiguous
@@ -2223,10 +2225,17 @@ id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
 id text2
+id textEmptyHistory
 id textEnd
 id textExerciseName
+id textPeso
+id textReps
 id textRoutineDays
 id textRoutineName
+id textRoutineTitle
+id textSerieIndex
+id textSeriesInfo
+id textSessionHeader
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -2251,6 +2260,7 @@ id toggle
 id top
 id topPanel
 id touch_outside
+id trainingHistoryFragment
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -2369,6 +2379,7 @@ layout fragment_planner
 layout fragment_profile
 layout fragment_register_training
 layout fragment_stats
+layout fragment_training_history
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_exercise_input
@@ -2376,6 +2387,9 @@ layout item_exercise_log_input
 layout item_routine_card
 layout item_routine_day
 layout item_serie_input
+layout item_serie_logged
+layout item_training_history_exercise
+layout item_training_history_session
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

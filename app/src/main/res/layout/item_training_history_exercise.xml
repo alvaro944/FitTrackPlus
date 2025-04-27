@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/textExerciseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press Banca"
+        android:textStyle="bold" />
+
+    <!-- Repetimos esto por cada serie -->
+    <TextView
+        android:id="@+id/textSeriesInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Serie 1: 60 kg x 8 reps" />
+</LinearLayout>

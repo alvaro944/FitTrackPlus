@@ -369,6 +369,38 @@ public final class RoutineDao_Impl implements RoutineDao {
     }, $completion);
   }
 
+  @Override
+  public Object getDayNameById(final long dayId, final Continuation<? super String> $completion) {
+    final String _sql = "SELECT dayName FROM routine_days WHERE id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, dayId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<String>() {
+      @Override
+      @Nullable
+      public String call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final String _result;
+          if (_cursor.moveToFirst()) {
+            if (_cursor.isNull(0)) {
+              _result = null;
+            } else {
+              _result = _cursor.getString(0);
+            }
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();

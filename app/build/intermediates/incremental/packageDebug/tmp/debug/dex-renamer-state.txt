@@ -1,4 +1,4 @@
-#Sun Apr 20 14:35:50 CEST 2025
+#Mon Apr 28 01:41:53 CEST 2025
 base.0=C\:\\Users\\Alvaro\\AndroidStudioProjects\\FitTrackPlus\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Alvaro\\AndroidStudioProjects\\FitTrackPlus\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Alvaro\\AndroidStudioProjects\\FitTrackPlus\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex

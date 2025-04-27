@@ -4,6 +4,7 @@ package com.alvarocervantes.fittrackplus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,10 +21,15 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button buttonViewHistory;
+
+  @NonNull
   public final TextView textHome;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textHome) {
+  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull Button buttonViewHistory,
+      @NonNull TextView textHome) {
     this.rootView = rootView;
+    this.buttonViewHistory = buttonViewHistory;
     this.textHome = textHome;
   }
 
@@ -54,13 +60,19 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.buttonViewHistory;
+      Button buttonViewHistory = ViewBindings.findChildViewById(rootView, id);
+      if (buttonViewHistory == null) {
+        break missingId;
+      }
+
       id = R.id.text_home;
       TextView textHome = ViewBindings.findChildViewById(rootView, id);
       if (textHome == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, textHome);
+      return new FragmentHomeBinding((ConstraintLayout) rootView, buttonViewHistory, textHome);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

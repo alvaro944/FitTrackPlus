@@ -61,5 +61,11 @@
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.training.RegisterTrainingFragment"
         android:label="Registrar Entrenamiento"
         tools:layout="@layout/fragment_register_training" />
+    <fragment
+        android:id="@+id/trainingHistoryFragment"
+        android:name="com.alvarocervantes.fittrackplus.ui.fragments.training.TrainingHistoryFragment"
+        android:label="Historial de Entrenamiento"
+        tools:layout="@layout/fragment_training_history" />
+
 
 </navigation>

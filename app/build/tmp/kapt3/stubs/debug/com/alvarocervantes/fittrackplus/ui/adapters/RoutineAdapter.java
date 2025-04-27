@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.alvarocervantes.fittrackplus.data.preferences.LastRoutineManager;
 import com.alvarocervantes.fittrackplus.R;
 import com.alvarocervantes.fittrackplus.data.model.RoutineEntity;
 
