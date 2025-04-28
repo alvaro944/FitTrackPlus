@@ -11,3 +11,4 @@ data class ExerciseEntity(
     val series: Int,          // Número de series definidas para este ejercicio
     val reps: String
 )
+

@@ -80,3 +80,4 @@ class RegisterTrainingViewModel(application: Application) : AndroidViewModel(app
 
 
 }
+

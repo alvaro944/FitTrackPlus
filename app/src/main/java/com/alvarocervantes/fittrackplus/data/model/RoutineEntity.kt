@@ -8,3 +8,4 @@ data class RoutineEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String
 )
+

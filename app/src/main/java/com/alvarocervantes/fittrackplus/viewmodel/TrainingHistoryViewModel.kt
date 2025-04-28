@@ -38,3 +38,4 @@ class TrainingHistoryViewModel(application: Application) : AndroidViewModel(appl
     }
 
 }
+

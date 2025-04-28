@@ -140,3 +140,4 @@ class RegisterTrainingFragment : Fragment() {
     }
 
 }
+
