@@ -21,3 +21,4 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun routineDao(): RoutineDao
     abstract fun sessionDao(): SessionDao
 }
+

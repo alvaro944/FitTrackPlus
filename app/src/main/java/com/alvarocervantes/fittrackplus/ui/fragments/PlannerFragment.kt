@@ -16,3 +16,4 @@ class PlannerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_planner, container, false)
     }
 }
+

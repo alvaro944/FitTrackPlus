@@ -26,4 +26,8 @@ interface RoutineDao {
     @Query("SELECT * FROM routines WHERE id = :id")
     suspend fun getRoutineById(id: Long): RoutineEntity?
 
+    @Query("SELECT dayName FROM routine_days WHERE id = :dayId")
+    suspend fun getDayNameById(dayId: Long): String?
+
 }
+

@@ -10,3 +10,4 @@ data class RoutineDayEntity(
     val dayName: String,
     val dayOrder: Int // para saber si es día 1, 2, 3, etc.
 )
+

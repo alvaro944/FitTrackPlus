@@ -13,3 +13,4 @@ data class ExerciseLogEntity(
     val repetitions: Int,      // Repeticiones realizadas
     val comment: String? = null // Comentario opcional
 )
+

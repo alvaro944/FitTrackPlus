@@ -12,3 +12,4 @@ data class SessionEntity(
     val week: Int,              // Semana de la rutina (vuelta)
     val comment: String? = null // Comentario opcional de la sesión
 )
+

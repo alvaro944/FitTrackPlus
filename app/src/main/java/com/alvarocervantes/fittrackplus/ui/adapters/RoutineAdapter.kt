@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.alvarocervantes.fittrackplus.data.preferences.LastRoutineManager
 import com.alvarocervantes.fittrackplus.R
 import com.alvarocervantes.fittrackplus.data.model.RoutineEntity
 
@@ -35,7 +36,8 @@ class RoutineAdapter(
         holder.textDays.text = "$dayCount ${if (dayCount == 1) "día" else "días"}"
 
         holder.cardView.setOnClickListener {
-            onRoutineClick(routine)
+            LastRoutineManager.saveLastRoutineId(holder.itemView.context, routine.id)  // << NUEVO
+            onEditClick(routine) // ya tenías esto
         }
 
         holder.buttonEdit.setOnClickListener {
@@ -47,3 +49,4 @@ class RoutineAdapter(
 
     override fun getItemCount(): Int = routines.size
 }
+
