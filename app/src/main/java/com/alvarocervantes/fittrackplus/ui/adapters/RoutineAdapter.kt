@@ -36,8 +36,8 @@ class RoutineAdapter(
         holder.textDays.text = "$dayCount ${if (dayCount == 1) "día" else "días"}"
 
         holder.cardView.setOnClickListener {
-            LastRoutineManager.saveLastRoutineId(holder.itemView.context, routine.id)  // << NUEVO
-            onEditClick(routine) // ya tenías esto
+            LastRoutineManager.saveLastRoutineId(holder.itemView.context, routine.id)
+            onRoutineClick(routine)
         }
 
         holder.buttonEdit.setOnClickListener {

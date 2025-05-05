@@ -70,31 +70,52 @@ class TrainingHistoryFragment : Fragment() {
                     val textSessionHeader = sessionCard.findViewById<TextView>(R.id.textSessionHeader)
                     val containerExercises = sessionCard.findViewById<LinearLayout>(R.id.containerExercises)
                     val dayName = viewModel.getDayName(session.dayId) ?: "Desconocido"
+                    val weekText = "Semana ${session.week}"
+                    val europeanDate = formatToEuropeanDate(session.date)
 
-                    textSessionHeader.text = "📅 ${session.date} - 🧠 $dayName"
+                    textSessionHeader.text = "📅 $europeanDate - 💪🏽 $dayName - $weekText"
 
-                    exercises.forEach { log ->
-                        val exerciseView = layoutInflater.inflate(
-                            R.layout.item_serie_logged,
-                            containerExercises,
-                            false
-                        )
+                    val exercisesByName = exercises.groupBy { it.exerciseName }
 
-                        val textSerieIndex = exerciseView.findViewById<TextView>(R.id.textSerieIndex)
-                        val textPeso = exerciseView.findViewById<TextView>(R.id.textPeso)
-                        val textReps = exerciseView.findViewById<TextView>(R.id.textReps)
+                    for ((exerciseName, logs) in exercisesByName) {
+                        val exerciseTitle = TextView(requireContext()).apply {
+                            text = exerciseName
+                            textSize = 16f
+                            setPadding(0, 16, 0, 8)
+                            setTypeface(null, android.graphics.Typeface.BOLD)
+                        }
+                        containerExercises.addView(exerciseTitle)
 
-                        textSerieIndex.text = "Serie ${log.seriesNumber}"
-                        textPeso.text = "${log.weight} kg"
-                        textReps.text = "${log.repetitions} reps"
+                        logs.forEach { logWithName ->
+                            val log = logWithName.log
+                            val exerciseView = layoutInflater.inflate(R.layout.item_serie_logged, containerExercises, false)
 
-                        containerExercises.addView(exerciseView)
+                            val textSerieIndex = exerciseView.findViewById<TextView>(R.id.textSerieIndex)
+                            val textPeso = exerciseView.findViewById<TextView>(R.id.textPeso)
+                            val textReps = exerciseView.findViewById<TextView>(R.id.textReps)
+
+                            textSerieIndex.text = "Serie ${log.seriesNumber}"
+                            textPeso.text = "${log.weight} kg"
+                            textReps.text = "${log.repetitions} reps"
+
+                            containerExercises.addView(exerciseView)
+                        }
                     }
-
                     containerHistory.addView(sessionCard)
                 }
             }
         }
     }
+    private fun formatToEuropeanDate(isoDate: String): String {
+        return try {
+            val inputFormat = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
+            val outputFormat = java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
+            val date = inputFormat.parse(isoDate)
+            outputFormat.format(date!!)
+        } catch (e: Exception) {
+            isoDate // En caso de error, muestra el original
+        }
+    }
+
 }
 

@@ -3,6 +3,7 @@ package com.alvarocervantes.fittrackplus.data.dao
 import androidx.room.*
 import com.alvarocervantes.fittrackplus.data.model.SessionEntity
 import com.alvarocervantes.fittrackplus.data.model.ExerciseLogEntity
+import com.alvarocervantes.fittrackplus.data.model.ExerciseLogWithName
 
 @Dao
 interface SessionDao {
@@ -26,6 +27,18 @@ interface SessionDao {
     ORDER BY s.date DESC
 """)
     suspend fun getLogsByExerciseOrdered(exerciseId: Long): List<ExerciseLogEntity>
+
+    @Query("SELECT * FROM sessions WHERE routineId = :routineId ORDER BY date DESC")
+    suspend fun getSessionsForRoutine(routineId: Long): List<SessionEntity>
+
+    @Query("""
+    SELECT el.*, e.name AS exercise_name
+    FROM exercise_logs el
+    INNER JOIN exercises e ON el.exerciseId = e.id
+    WHERE el.sessionId = :sessionId
+    ORDER BY el.exerciseId, el.seriesNumber
+""")
+    suspend fun getLogsWithNamesForSession(sessionId: Long): List<ExerciseLogWithName>
 
 
 }
