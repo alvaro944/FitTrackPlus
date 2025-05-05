@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.NumberPicker
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.alvarocervantes.fittrackplus.R
@@ -31,7 +32,11 @@ class CreateRoutineStartFragment : Fragment() {
             val name = editTitle.text.toString().trim()
             val days = numberPickerDays.value
 
-            if (name.isNotEmpty()) {
+            if (name.isEmpty()) {
+                // Mostrar un mensaje de error si el nombre está vacío
+                Toast.makeText(requireContext(), "⚠️ Por favor, introduce un nombre para la rutina", Toast.LENGTH_SHORT).show()
+            } else {
+                // Continuar si el nombre no está vacío
                 val bundle = Bundle().apply {
                     putString("routineName", name)
                     putInt("numberOfDays", days)
@@ -48,4 +53,3 @@ class CreateRoutineStartFragment : Fragment() {
         return view
     }
 }
-
