@@ -26,5 +26,9 @@ object LastRoutineManager {
             .remove(KEY_LAST_ROUTINE_ID)
             .apply()
     }
+
+    fun isRoutineSelected(context: Context, routineId: Long): Boolean {
+        return getLastRoutineId(context) == routineId
+    }
 }
 
