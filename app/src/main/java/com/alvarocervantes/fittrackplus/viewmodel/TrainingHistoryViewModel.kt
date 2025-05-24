@@ -1,6 +1,7 @@
 package com.alvarocervantes.fittrackplus.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import com.alvarocervantes.fittrackplus.data.database.DatabaseProvider
 import com.alvarocervantes.fittrackplus.data.model.ExerciseLogEntity
@@ -18,22 +19,20 @@ class TrainingHistoryViewModel(application: Application) : AndroidViewModel(appl
      * - Sesión de entrenamiento
      * - Lista de ejercicios realizados
      */
-    suspend fun getTrainingHistory(): List<Pair<SessionEntity, List<ExerciseLogWithName>>> {
-        val sessions = if (routineId != null) {
-            sessionDao.getSessionsForRoutine(routineId!!)
-        } else {
-            sessionDao.getAllSessions()
-        }
+    suspend fun getTrainingHistory(): List<Pair<SessionEntity, List<ExerciseLogEntity>>> {
+        val sessions = sessionDao.getSessionsForRoutine(routineId ?: return emptyList())
 
         return sessions.map { session ->
-            val exercises = sessionDao.getLogsWithNamesForSession(session.id)
+            val exercises = sessionDao.getLogsForSession(session.id)  // Ya contienen exerciseName
             session to exercises
         }
     }
 
 
     suspend fun getDayName(dayId: Long): String? {
-        return db.routineDao().getDayNameById(dayId)
+        val day = db.routineDao().getDayById(dayId)
+        Log.d("DebugDayName", "Buscando dayId: $dayId, encontrado: ${day?.dayName}")
+        return day?.dayName
     }
 
     fun setRoutineId(id: Long){

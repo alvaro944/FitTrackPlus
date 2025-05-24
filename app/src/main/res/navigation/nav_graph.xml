@@ -10,6 +10,7 @@
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.HomeFragment"
         android:label="Inicio"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/plannerFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.PlannerFragment"
@@ -20,7 +21,13 @@
         android:id="@+id/addTrainingFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.AddTrainingFragment"
         android:label="Añadir"
-        tools:layout="@layout/fragment_add_training" />
+        tools:layout="@layout/fragment_add_training">
+
+        <!-- ESTE ES EL ACTION QUE FALTABA -->
+        <action
+            android:id="@+id/action_addTrainingFragment_to_createRoutineFragment"
+            app:destination="@id/createRoutineFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/statsFragment"
@@ -33,6 +40,7 @@
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.ProfileFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/createRoutineFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.routine.CreateRoutineFragment"
@@ -45,27 +53,27 @@
             android:defaultValue="-1L" />
     </fragment>
 
-
     <fragment
         android:id="@+id/createRoutineStartFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.routine.CreateRoutineStartFragment"
         android:label="Crear rutina"
         tools:layout="@layout/fragment_create_routine_start">
+
         <action
             android:id="@+id/action_createRoutineStartFragment_to_createRoutineFragment"
             app:destination="@id/createRoutineFragment" />
-
     </fragment>
+
     <fragment
         android:id="@+id/registerTrainingFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.training.RegisterTrainingFragment"
         android:label="Registrar Entrenamiento"
         tools:layout="@layout/fragment_register_training" />
+
     <fragment
         android:id="@+id/trainingHistoryFragment"
         android:name="com.alvarocervantes.fittrackplus.ui.fragments.training.TrainingHistoryFragment"
         android:label="Historial de Entrenamiento"
         tools:layout="@layout/fragment_training_history" />
-
 
 </navigation>

@@ -10,9 +10,9 @@ interface SessionDao {
 
     // Sesiones de entrenamiento
     @Insert suspend fun insertSession(session: SessionEntity): Long
-    @Query("SELECT * FROM sessions ORDER BY date DESC")
+    @Query("SELECT id, routineId, dayId, date, week, dayName, comment FROM sessions ORDER BY date DESC")
     suspend fun getAllSessions(): List<SessionEntity>
-    @Query("SELECT * FROM sessions WHERE routineId = :routineId ORDER BY date DESC")
+    @Query("SELECT id, routineId, dayId, date, week, dayName, comment FROM sessions WHERE routineId = :routineId ORDER BY date DESC")
     suspend fun getSessionsByRoutine(routineId: Long): List<SessionEntity>
 
     // Logs de ejercicios (registro de cada serie)
@@ -39,7 +39,6 @@ interface SessionDao {
     ORDER BY el.exerciseId, el.seriesNumber
 """)
     suspend fun getLogsWithNamesForSession(sessionId: Long): List<ExerciseLogWithName>
-
 
 }
 

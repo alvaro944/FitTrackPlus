@@ -45,16 +45,19 @@ class RegisterTrainingViewModel(application: Application) : AndroidViewModel(app
         val sessions = sessionDao.getSessionsByRoutine(routineId)
         val validSessions = sessions.filter { it.dayId in allDays.map { it.id } }
 
+        val dayEntity = routineDao.getDayById(dayId)
+        val dayName = dayEntity?.dayName ?: "Desconocido"
+
         val weekNumber = validSessions.size / allDays.size + 1
 
         val session = SessionEntity(
             routineId = routineId,
             dayId = dayId,
-            date = getCurrentDateIso(), // Ahora sí compila
+            date = getCurrentDateIso(),
             week = weekNumber,
+            dayName = dayName,
             comment = null
         )
-
         return sessionDao.insertSession(session)
     }
 

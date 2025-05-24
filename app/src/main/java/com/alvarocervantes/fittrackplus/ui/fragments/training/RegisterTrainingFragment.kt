@@ -25,7 +25,7 @@ class RegisterTrainingFragment : Fragment() {
 
     // Custom data class to hold inputs
     data class Quadruple<A, B, C, D>(val first: A, val second: B, val third: C, val fourth: D)
-    data class SerieInput(val exerciseId: Long, val seriesNumber: Int, val pesoEdit: EditText, val repsEdit: EditText)
+    data class SerieInput(val exerciseId: Long, val exerciseName: String,val seriesNumber: Int, val pesoEdit: EditText, val repsEdit: EditText)
 
     private val inputSeries = mutableListOf<SerieInput>()
 
@@ -81,7 +81,7 @@ class RegisterTrainingFragment : Fragment() {
                             val pesoEdit = serieView.findViewById<EditText>(R.id.editPeso)
                             val repsEdit = serieView.findViewById<EditText>(R.id.editReps)
 
-                            inputSeries.add(SerieInput(exercise.id, index + 1, pesoEdit, repsEdit))
+                            inputSeries.add(SerieInput(exercise.id, exercise.name, index + 1, pesoEdit, repsEdit))
                             containerSeries.addView(serieView)
                         }
 
@@ -106,9 +106,7 @@ class RegisterTrainingFragment : Fragment() {
         lifecycleScope.launch {
             val sessionId = viewModel.insertSessionWithWeek(routineId, dayId)
 
-            Log.d("Registro", "✅ Sesión guardada: ID=$sessionId")
-
-            inputSeries.forEach { (exerciseId, seriesNumber, pesoEdit, repsEdit) ->
+            inputSeries.forEach { (exerciseId, exerciseName,seriesNumber, pesoEdit, repsEdit) ->
                 val peso = pesoEdit.text.toString().toFloatOrNull() ?: 0f
                 val reps = repsEdit.text.toString().toIntOrNull() ?: 0
 
@@ -117,6 +115,7 @@ class RegisterTrainingFragment : Fragment() {
                         ExerciseLogEntity(
                             sessionId = sessionId,
                             exerciseId = exerciseId,
+                            exerciseName = exerciseName,
                             seriesNumber = seriesNumber,
                             weight = peso,
                             repetitions = reps,

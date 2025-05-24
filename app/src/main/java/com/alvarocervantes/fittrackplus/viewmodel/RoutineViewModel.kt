@@ -61,6 +61,35 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun updateRoutineWithNewDaysAndExercises(
+        routineId: Long,
+        newDays: List<Pair<String, List<Triple<String, Int, String>>>>
+    ) {
+        val dao = db.routineDao()
 
+        // 1. Eliminar los días y ejercicios antiguos de esa rutina
+        dao.deleteExercisesForRoutine(routineId)
+        dao.deleteDaysForRoutine(routineId)
+
+        // 2. Insertar los nuevos días y ejercicios
+        newDays.forEachIndexed { index, (dayName, exercises) ->
+            val dayEntity = RoutineDayEntity(
+                routineId = routineId,
+                dayName = dayName,
+                dayOrder = index
+            )
+            val dayId = dao.insertDay(dayEntity)
+
+            exercises.forEach { (name, series, reps) ->
+                val exercise = ExerciseEntity(
+                    dayId = dayId,
+                    name = name,
+                    series = series,
+                    reps = reps
+                )
+                dao.insertExercise(exercise)
+            }
+        }
+    }
 }
 

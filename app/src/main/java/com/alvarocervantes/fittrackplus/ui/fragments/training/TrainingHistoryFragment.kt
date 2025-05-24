@@ -69,7 +69,7 @@ class TrainingHistoryFragment : Fragment() {
 
                     val textSessionHeader = sessionCard.findViewById<TextView>(R.id.textSessionHeader)
                     val containerExercises = sessionCard.findViewById<LinearLayout>(R.id.containerExercises)
-                    val dayName = viewModel.getDayName(session.dayId) ?: "Desconocido"
+                    val dayName = session.dayName.ifBlank { "Desconocido" }
                     val weekText = "Semana ${session.week}"
                     val europeanDate = formatToEuropeanDate(session.date)
 
@@ -86,8 +86,7 @@ class TrainingHistoryFragment : Fragment() {
                         }
                         containerExercises.addView(exerciseTitle)
 
-                        logs.forEach { logWithName ->
-                            val log = logWithName.log
+                        logs.forEach { log ->  // ya es un ExerciseLogEntity
                             val exerciseView = layoutInflater.inflate(R.layout.item_serie_logged, containerExercises, false)
 
                             val textSerieIndex = exerciseView.findViewById<TextView>(R.id.textSerieIndex)

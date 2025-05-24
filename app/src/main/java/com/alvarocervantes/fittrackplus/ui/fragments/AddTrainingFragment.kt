@@ -69,8 +69,9 @@ class AddTrainingFragment : Fragment() {
                     findNavController().navigate(R.id.registerTrainingFragment, bundle)
                 },
                 onEditClick = { routine ->
-                    // Más adelante: lógica para editar rutina
-                    Toast.makeText(requireContext(), "Editar rutina (pendiente)", Toast.LENGTH_SHORT).show()
+                    val action = AddTrainingFragmentDirections
+                        .actionAddTrainingFragmentToCreateRoutineFragment(routineIdToEdit = routine.id)
+                    findNavController().navigate(action)
                 }
             )
             recyclerView.adapter = adapter

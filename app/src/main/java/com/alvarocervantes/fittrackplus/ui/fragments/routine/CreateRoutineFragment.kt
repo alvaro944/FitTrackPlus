@@ -114,11 +114,13 @@ class CreateRoutineFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            if (daysList.isNotEmpty()) {
-                viewModel.insertRoutineWithDaysAndExercises(routineName, daysList)
+            lifecycleScope.launch {
+                if (routineIdToEdit != -1L) {
+                    viewModel.updateRoutineWithNewDaysAndExercises(routineIdToEdit, daysList)
+                } else {
+                    viewModel.insertRoutineWithDaysAndExercises(routineName, daysList)
+                }
                 findNavController().popBackStack(R.id.addTrainingFragment, false)
-            } else {
-                Toast.makeText(requireContext(), "⚠️ No se añadieron ejercicios válidos", Toast.LENGTH_SHORT).show()
             }
         }
 

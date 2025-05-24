@@ -14,7 +14,7 @@ import com.alvarocervantes.fittrackplus.data.model.*
         SessionEntity::class,
         ExerciseLogEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
