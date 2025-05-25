@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.alvarocervantes.fittrackplus"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -57,6 +57,10 @@ dependencies {
     // Navegación con Fragments
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
 
     // Test
     testImplementation(libs.junit)
@@ -64,12 +68,17 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.0-alpha02")
+    kapt("androidx.room:room-compiler:2.7.0-alpha02")
+    implementation("androidx.room:room-ktx:2.7.0-alpha02")
 
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
 
 }
+apply(plugin = "com.google.gms.google-services")
