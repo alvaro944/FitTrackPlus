@@ -123,9 +123,12 @@ class ProfileFragment : Fragment() {
                 val password = passwordInput.text.toString()
                 if (email.isNotBlank() && password.length >= 6) {
                     auth.signInWithEmailAndPassword(email, password)
-                        .addOnSuccessListener { actualizarVista() }
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "✅ Sesión iniciada", Toast.LENGTH_SHORT).show()
+                            actualizarVista()
+                        }
                         .addOnFailureListener {
-                            Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "❌ Error al iniciar sesión: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
             }
@@ -138,9 +141,12 @@ class ProfileFragment : Fragment() {
                 val password = passwordInput.text.toString()
                 if (email.isNotBlank() && password.length >= 6) {
                     auth.createUserWithEmailAndPassword(email, password)
-                        .addOnSuccessListener { actualizarVista() }
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "✅ Cuenta creada", Toast.LENGTH_SHORT).show()
+                            actualizarVista()
+                        }
                         .addOnFailureListener {
-                            Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "❌ Error al crear cuenta: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
             }
@@ -201,17 +207,23 @@ class ProfileFragment : Fragment() {
                 lifecycleScope.launch {
                     FirebaseRepository.restoreBackupSnapshot(
                         onResult = { routines, sessions ->
-                            launch {
-                                val db = DatabaseProvider.getDatabase(requireContext())
-                                db.routineDao().deleteAllRoutines()
-                                db.sessionDao().deleteAllSessions()
-                                routines.forEach { db.routineDao().insertRoutine(it) }
-                                sessions.forEach { db.sessionDao().insertSession(it) }
-                                Toast.makeText(requireContext(), "Backup restaurado", Toast.LENGTH_SHORT).show()
+                            lifecycleScope.launch {
+                                try {
+                                    val db = DatabaseProvider.getDatabase(requireContext())
+                                    db.routineDao().deleteAllRoutines()
+                                    db.sessionDao().deleteAllSessions()
+                                    routines.forEach { db.routineDao().insertRoutine(it) }
+                                    sessions.forEach { db.sessionDao().insertSession(it) }
+
+                                    Toast.makeText(requireContext(), "✅ Backup restaurado", Toast.LENGTH_SHORT).show()
+                                    actualizarVista()
+                                } catch (e: Exception) {
+                                    Toast.makeText(requireContext(), "❌ Error al guardar en Room: ${e.message}", Toast.LENGTH_LONG).show()
+                                }
                             }
                         },
                         onFailure = {
-                            Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(requireContext(), "❌ Error al restaurar backup: ${it.message}", Toast.LENGTH_LONG).show()
                         }
                     )
                 }
