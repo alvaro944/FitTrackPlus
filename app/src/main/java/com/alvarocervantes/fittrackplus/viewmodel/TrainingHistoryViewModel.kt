@@ -43,6 +43,8 @@ class TrainingHistoryViewModel(application: Application) : AndroidViewModel(appl
         val routine = db.routineDao().getRoutineById(id)
         return routine?.name ?: "Rutina actual"
     }
-
+    suspend fun getAllSessions(): List<SessionEntity> {
+        return sessionDao.getAllSessions()
+    }
 }
 

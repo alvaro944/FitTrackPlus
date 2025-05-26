@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alvarocervantes.fittrackplus.R
+import com.alvarocervantes.fittrackplus.data.model.RoutineEntity
 import com.alvarocervantes.fittrackplus.ui.adapters.RoutineAdapter
 import com.alvarocervantes.fittrackplus.viewmodel.RoutineViewModel
 import kotlinx.coroutines.launch
@@ -22,6 +23,22 @@ class AddTrainingFragment : Fragment() {
     private val viewModel: RoutineViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RoutineAdapter
+
+    private val onRoutineClick: (RoutineEntity) -> Unit = { routine ->
+        val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
+        prefs.edit().putLong("last_gym_routine_id", routine.id).apply()
+
+        val bundle = Bundle().apply {
+            putLong("routineId", routine.id)
+        }
+        findNavController().navigate(R.id.registerTrainingFragment, bundle)
+    }
+
+    private val onEditClick: (RoutineEntity) -> Unit = { routine ->
+        val action = AddTrainingFragmentDirections
+            .actionAddTrainingFragmentToCreateRoutineFragment(routineIdToEdit = routine.id)
+        findNavController().navigate(action)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +54,6 @@ class AddTrainingFragment : Fragment() {
             findNavController().navigate(R.id.createRoutineStartFragment)
         }
 
-        //Botón para registrar entrenamiento
         val buttonIrARegistrar = view.findViewById<Button>(R.id.buttonIrARegistrarEntreno)
         buttonIrARegistrar.setOnClickListener {
             val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
@@ -53,36 +69,36 @@ class AddTrainingFragment : Fragment() {
             }
         }
 
-        // Cargar las rutinas desde Room
+        return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadRoutines()
+    }
+
+    private fun loadRoutines() {
         lifecycleScope.launch {
             val routines = viewModel.getRoutinesWithDays()
             adapter = RoutineAdapter(
                 routines,
-                onRoutineClick = { routine ->
-                    // Seleccionar rutina para entrenamiento
-                    val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
-                    prefs.edit().putLong("last_gym_routine_id", routine.id).apply()
-
-                    val bundle = Bundle().apply {
-                        putLong("routineId", routine.id)
+                onRoutineClick = onRoutineClick,
+                onEditClick = onEditClick,
+                onDeleteClick = { routine ->
+                    lifecycleScope.launch {
+                        viewModel.deleteRoutine(routine)
+                        loadRoutines() // ← refresca después de borrar
+                        Toast.makeText(requireContext(), "Rutina eliminada", Toast.LENGTH_SHORT).show()
                     }
-                    findNavController().navigate(R.id.registerTrainingFragment, bundle)
-                },
-                onEditClick = { routine ->
-                    val action = AddTrainingFragmentDirections
-                        .actionAddTrainingFragmentToCreateRoutineFragment(routineIdToEdit = routine.id)
-                    findNavController().navigate(action)
                 }
             )
             recyclerView.adapter = adapter
         }
-
-        return view
     }
+
     private fun setLastGymRoutineId(routineId: Long) {
         val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
         prefs.edit().putLong("last_gym_routine_id", routineId).apply()
     }
-
 }
 

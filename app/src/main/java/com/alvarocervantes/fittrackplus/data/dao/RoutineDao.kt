@@ -40,4 +40,6 @@ interface RoutineDao {
     @Query("SELECT * FROM routine_days WHERE id = :dayId")
     suspend fun getDayById(dayId: Long): RoutineDayEntity?
 
+    @Query("DELETE FROM routines")
+    suspend fun deleteAllRoutines()
 }

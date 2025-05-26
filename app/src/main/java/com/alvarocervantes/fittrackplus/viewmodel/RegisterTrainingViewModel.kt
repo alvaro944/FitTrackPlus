@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import com.alvarocervantes.fittrackplus.data.database.DatabaseProvider
+import com.alvarocervantes.fittrackplus.data.firebase.FirebaseRepository
 import com.alvarocervantes.fittrackplus.data.model.*
 import com.alvarocervantes.fittrackplus.ui.fragments.training.RegisterTrainingFragment
 
@@ -58,14 +59,24 @@ class RegisterTrainingViewModel(application: Application) : AndroidViewModel(app
             dayName = dayName,
             comment = null
         )
-        return sessionDao.insertSession(session)
+        val sessionId = sessionDao.insertSession(session)
+        val sessionWithId = session.copy(id = sessionId)
+        FirebaseRepository.uploadSession(sessionWithId)
+        return sessionId
     }
-
-
 
     suspend fun insertLog(log: ExerciseLogEntity): Long {
-        return sessionDao.insertExerciseLog(log)
+        val logId = sessionDao.insertExerciseLog(log)
+
+        // Obtener sesión asociada
+        val session = sessionDao.getSessionById(log.sessionId)
+        session?.let {
+            FirebaseRepository.uploadSession(it)
+        }
+
+        return logId
     }
+
     suspend fun getRoutineById(id: Long): RoutineEntity? {
         return routineDao.getRoutineById(id)
     }
@@ -79,8 +90,4 @@ class RegisterTrainingViewModel(application: Application) : AndroidViewModel(app
     suspend fun getSessionsForRoutine(routineId: Long): List<SessionEntity> {
         return sessionDao.getSessionsByRoutine(routineId)
     }
-
-
-
 }
-

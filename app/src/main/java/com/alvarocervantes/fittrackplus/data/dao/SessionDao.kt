@@ -40,6 +40,12 @@ interface SessionDao {
 """)
     suspend fun getLogsWithNamesForSession(sessionId: Long): List<ExerciseLogWithName>
 
+    @Query("DELETE FROM sessions")
+    suspend fun deleteAllSessions()
+
+    @Query("SELECT * FROM sessions WHERE id = :sessionId")
+    suspend fun getSessionById(sessionId: Long): SessionEntity?
+
 }
 
 

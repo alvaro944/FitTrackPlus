@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import com.alvarocervantes.fittrackplus.data.database.DatabaseProvider
+import com.alvarocervantes.fittrackplus.data.firebase.FirebaseRepository
 import com.alvarocervantes.fittrackplus.data.model.ExerciseEntity
 import com.alvarocervantes.fittrackplus.data.model.RoutineDayEntity
 import com.alvarocervantes.fittrackplus.data.model.RoutineEntity
@@ -29,6 +30,9 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             val routineId = routineDao.insertRoutine(RoutineEntity(name = routineName))
+            val routine = RoutineEntity(name = routineName, id = routineId)
+            FirebaseRepository.uploadRoutine(routine)
+
 
             days.forEachIndexed { index, (dayName, exercises) ->
                 val dayId = routineDao.insertDay(
@@ -90,6 +94,16 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
                 dao.insertExercise(exercise)
             }
         }
+        val updatedRoutine = dao.getRoutineById(routineId)
+        updatedRoutine?.let { FirebaseRepository.uploadRoutine(it) }
+
+    }
+    suspend fun getAllRoutines(): List<RoutineEntity> {
+        return routineDao.getAllRoutines()
+    }
+    fun deleteRoutine(routine: RoutineEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            db.routineDao().deleteRoutine(routine)
+        }
     }
 }
-
