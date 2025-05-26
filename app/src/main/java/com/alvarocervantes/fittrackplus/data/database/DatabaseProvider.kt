@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 
 object DatabaseProvider {
-
     @Volatile
     private var INSTANCE: AppDatabase? = null
 
@@ -13,11 +12,13 @@ object DatabaseProvider {
             val instance = Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                "fittrackplus_database"
-            ).fallbackToDestructiveMigration().build()
+                "fittrack_database"
+            )
+                .fallbackToDestructiveMigration()
+                .fallbackToDestructiveMigrationOnDowngrade()
+                .build()
             INSTANCE = instance
             instance
         }
     }
 }
-

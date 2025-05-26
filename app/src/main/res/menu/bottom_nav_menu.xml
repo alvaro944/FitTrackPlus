@@ -7,7 +7,7 @@
         android:title="Inicio" />
 
     <item
-        android:id="@+id/plannerFragment"
+        android:id="@+id/calendarFragment"
         android:icon="@drawable/selector_calendar"
         android:title="Calendario" />
 
