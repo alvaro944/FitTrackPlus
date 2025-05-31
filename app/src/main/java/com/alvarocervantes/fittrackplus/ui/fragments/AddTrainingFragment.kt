@@ -16,6 +16,7 @@ import com.alvarocervantes.fittrackplus.R
 import com.alvarocervantes.fittrackplus.data.model.RoutineEntity
 import com.alvarocervantes.fittrackplus.ui.adapters.RoutineAdapter
 import com.alvarocervantes.fittrackplus.viewmodel.RoutineViewModel
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 
 class AddTrainingFragment : Fragment() {
@@ -46,27 +47,32 @@ class AddTrainingFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_add_training, container, false)
 
-        val buttonCreate = view.findViewById<Button>(R.id.buttonCreateRoutine)
+        val buttonCreate = view.findViewById<MaterialButton>(R.id.buttonCreateRoutine)
         recyclerView = view.findViewById(R.id.recyclerRoutines)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         buttonCreate.setOnClickListener {
-            findNavController().navigate(R.id.createRoutineStartFragment)
+            buttonCreate.postDelayed({
+                findNavController().navigate(R.id.createRoutineStartFragment)
+            }, 250)
         }
 
-        val buttonIrARegistrar = view.findViewById<Button>(R.id.buttonIrARegistrarEntreno)
+        val buttonIrARegistrar = view.findViewById<MaterialButton>(R.id.buttonIrARegistrarEntreno)
         buttonIrARegistrar.setOnClickListener {
-            val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
-            val lastRoutineId = prefs.getLong("last_gym_routine_id", -1L)
+            buttonCreate.postDelayed({
+                val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
+                val lastRoutineId = prefs.getLong("last_gym_routine_id", -1L)
 
-            if (lastRoutineId != -1L) {
-                val bundle = Bundle().apply {
-                    putLong("routineId", lastRoutineId)
+                if (lastRoutineId != -1L) {
+                    val bundle = Bundle().apply {
+                        putLong("routineId", lastRoutineId)
+                    }
+                    findNavController().navigate(R.id.registerTrainingFragment, bundle)
+                } else {
+                    Toast.makeText(requireContext(), "Selecciona una rutina primero", Toast.LENGTH_SHORT).show()
                 }
-                findNavController().navigate(R.id.registerTrainingFragment, bundle)
-            } else {
-                Toast.makeText(requireContext(), "Selecciona una rutina primero", Toast.LENGTH_SHORT).show()
-            }
+            }, 250)
+
         }
 
         return view

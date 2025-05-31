@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Banner superior opcional (puedes ocultarlo si no lo usas aún) -->
     <include
         android:id="@+id/topBanner"
         layout="@layout/view_header"
@@ -34,13 +33,14 @@
         android:id="@+id/bottom_nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#121212"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/negro"
+        app:itemBackground="@drawable/bottom_nav_item_background"
+        app:itemIconTint="@null"
+        app:itemTextColor="@null"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="unlabeled"
-        app:itemIconTint="@color/nav_item_color"
-        app:itemTextColor="@color/white" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

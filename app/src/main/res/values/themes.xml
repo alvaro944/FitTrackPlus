@@ -1,13 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.FitTrackPlus" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primario</item>
+        <item name="colorPrimaryVariant">@color/primario</item>
+        <item name="colorOnPrimary">@color/blanco</item>
 
-    <style name="Theme.FitTrackPlus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Personaliza aquí colores si lo deseas -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorOnSecondary">@android:color/black</item>
+        <item name="colorSecondary">@color/acento</item>
+        <item name="colorOnSecondary">@color/blanco</item>
+
+        <item name="android:background">@color/base</item>
+        <item name="colorOnBackground">@color/negro</item>
+
+        <item name="colorSurface">@color/blanco</item>
+        <item name="colorOnSurface">@color/negro</item>
+
+        <item name="android:colorBackground">@color/base</item>
+
+        <item name="colorTopBar">@color/primario</item>
+        <item name="colorBottomBar">@color/negro</item>
+
     </style>
-
 </resources>

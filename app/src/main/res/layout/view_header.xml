@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#2196F3"
+    android:background="@android:color/transparent"
     android:elevation="4dp">
 
     <!-- Espaciador dinámico para status bar -->
     <View
         android:id="@+id/viewStatusSpacer"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="0dp"
+        android:background="?attr/colorTopBar"/>
 
     <!-- Contenido del header -->
     <LinearLayout
@@ -18,22 +20,25 @@
         android:layout_height="56dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        android:background="?attr/colorTopBar">
 
         <ImageView
             android:id="@+id/headerLogo"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/colorTopBar"
             android:src="@mipmap/ic_launcher"
             android:contentDescription="Logo" />
 
         <TextView
             android:id="@+id/headerTitle"
+            android:background="?attr/colorTopBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FitTrackPlus"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="12dp" />
     </LinearLayout>

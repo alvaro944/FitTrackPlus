@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center">
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@android:color/white">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnGoToTestMaterial"
-        style="@style/FitTrackPlus.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ver test botón" />
+        android:text="TEST BOTÓN"
+        app:cornerRadius="16dp"
+        app:backgroundTint="@android:color/holo_orange_light"
+        android:textColor="@android:color/white"/>
 </LinearLayout>

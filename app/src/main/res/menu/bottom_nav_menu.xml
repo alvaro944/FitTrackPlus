@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorBottomBar">
 
     <item
         android:id="@+id/homeFragment"
@@ -19,7 +21,7 @@
     <item
         android:id="@+id/statsFragment"
         android:icon="@drawable/selector_analytics"
-        android:title="Estadísticas" />
+        android:title="Estadísticas"/>
 
     <item
         android:id="@+id/profileFragment"

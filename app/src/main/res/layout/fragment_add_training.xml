@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layoutAddTraining"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
     <!-- Botón para crear una nueva rutina -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCreateRoutine"
+        style="@style/FitTrackPlus.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crear nueva rutina" />
-    <Button
-        android:id="@+id/buttonIrARegistrarEntreno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar Entrenamiento"/>
+        android:text="Crear nueva rutina"
+        android:layout_marginBottom="12dp" />
 
+
+    <!-- Botón para registrar entrenamiento -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonIrARegistrarEntreno"
+        style="@style/FitTrackPlus.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Entrenamiento"
+        android:layout_marginBottom="16dp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoToTestMaterial"
+        style="@style/FitTrackPlus.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver test botón" />
 
     <!-- Lista de rutinas -->
     <androidx.recyclerview.widget.RecyclerView
@@ -25,5 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="16dp"/>
+        android:background="@color/blanco"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
