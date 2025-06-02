@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,7 @@ import com.alvarocervantes.fittrackplus.data.firebase.FirebaseRepository
 import com.alvarocervantes.fittrackplus.viewmodel.RoutineViewModel
 import com.alvarocervantes.fittrackplus.viewmodel.TrainingHistoryViewModel
 import com.bumptech.glide.Glide
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -106,6 +108,18 @@ class ProfileFragment : Fragment() {
         containerProfileLayout.addView(nombre)
     }
 
+    private fun crearBoton(texto: String, onClick: () -> Unit): MaterialButton {
+        return MaterialButton(requireContext(), null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+            text = texto
+            setTextColor(ContextCompat.getColor(context, R.color.blanco))
+            setBackgroundColor(ContextCompat.getColor(context, R.color.acento))
+            setPadding(24, 12, 24, 12)
+            cornerRadius = 32
+            textSize = 16f
+            setOnClickListener { onClick() }
+        }
+    }
+
     private fun mostrarFormularioLogin() {
         val emailInput = EditText(requireContext()).apply {
             hint = "Correo electrónico"
@@ -116,47 +130,38 @@ class ProfileFragment : Fragment() {
             inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
-        val loginButton = Button(requireContext()).apply {
-            text = "Iniciar sesión"
-            setOnClickListener {
-                val email = emailInput.text.toString()
-                val password = passwordInput.text.toString()
-                if (email.isNotBlank() && password.length >= 6) {
-                    auth.signInWithEmailAndPassword(email, password)
-                        .addOnSuccessListener {
-                            Toast.makeText(requireContext(), "✅ Sesión iniciada", Toast.LENGTH_SHORT).show()
-                            actualizarVista()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(requireContext(), "❌ Error al iniciar sesión: ${it.message}", Toast.LENGTH_SHORT).show()
-                        }
-                }
+        val loginButton = crearBoton("Iniciar sesión") {
+            val email = emailInput.text.toString()
+            val password = passwordInput.text.toString()
+            if (email.isNotBlank() && password.length >= 6) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "✅ Sesión iniciada", Toast.LENGTH_SHORT).show()
+                        actualizarVista()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "❌ Error al iniciar sesión: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
 
-        val registerButton = Button(requireContext()).apply {
-            text = "Crear cuenta"
-            setOnClickListener {
-                val email = emailInput.text.toString()
-                val password = passwordInput.text.toString()
-                if (email.isNotBlank() && password.length >= 6) {
-                    auth.createUserWithEmailAndPassword(email, password)
-                        .addOnSuccessListener {
-                            Toast.makeText(requireContext(), "✅ Cuenta creada", Toast.LENGTH_SHORT).show()
-                            actualizarVista()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(requireContext(), "❌ Error al crear cuenta: ${it.message}", Toast.LENGTH_SHORT).show()
-                        }
-                }
+        val registerButton = crearBoton("Crear cuenta") {
+            val email = emailInput.text.toString()
+            val password = passwordInput.text.toString()
+            if (email.isNotBlank() && password.length >= 6) {
+                auth.createUserWithEmailAndPassword(email, password)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "✅ Cuenta creada", Toast.LENGTH_SHORT).show()
+                        actualizarVista()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "❌ Error al crear cuenta: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
 
-        val googleButton = Button(requireContext()).apply {
-            text = "Iniciar sesión con Google"
-            setOnClickListener {
-                googleSignInLauncher.launch(googleSignInClient.signInIntent)
-            }
+        val googleButton = crearBoton("Iniciar sesión con Google") {
+            googleSignInLauncher.launch(googleSignInClient.signInIntent)
         }
 
         containerProfileLayout.addView(emailInput)
@@ -167,14 +172,10 @@ class ProfileFragment : Fragment() {
     }
 
     private fun mostrarBotonCerrarSesion() {
-        val logout = Button(requireContext()).apply {
-            text = "Cerrar sesión"
-            setTextColor(resources.getColor(android.R.color.holo_red_dark, null))
-            setOnClickListener {
-                auth.signOut()
-                Toast.makeText(requireContext(), "Sesión cerrada", Toast.LENGTH_SHORT).show()
-                actualizarVista()
-            }
+        val logout = crearBoton("Cerrar sesión") {
+            auth.signOut()
+            Toast.makeText(requireContext(), "Sesión cerrada", Toast.LENGTH_SHORT).show()
+            actualizarVista()
         }
         containerProfileLayout.addView(logout)
     }
@@ -183,50 +184,44 @@ class ProfileFragment : Fragment() {
         val routineVM = ViewModelProvider(this)[RoutineViewModel::class.java]
         val sessionVM = ViewModelProvider(this)[TrainingHistoryViewModel::class.java]
 
-        val backup = Button(requireContext()).apply {
-            text = "Guardar Backup Manual"
-            setOnClickListener {
-                lifecycleScope.launch {
-                    val rutinas = routineVM.getAllRoutines()
-                    val sesiones = sessionVM.getAllSessions()
-                    FirebaseRepository.saveBackupSnapshot(rutinas, sesiones,
-                        onSuccess = {
-                            Toast.makeText(requireContext(), "Backup guardado", Toast.LENGTH_SHORT).show()
-                        },
-                        onFailure = {
-                            Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_LONG).show()
-                        }
-                    )
-                }
+        val backup = crearBoton("Guardar Backup Manual") {
+            lifecycleScope.launch {
+                val rutinas = routineVM.getAllRoutines()
+                val sesiones = sessionVM.getAllSessions()
+                FirebaseRepository.saveBackupSnapshot(rutinas, sesiones,
+                    onSuccess = {
+                        Toast.makeText(requireContext(), "Backup guardado", Toast.LENGTH_SHORT).show()
+                    },
+                    onFailure = {
+                        Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_LONG).show()
+                    }
+                )
             }
         }
 
-        val restore = Button(requireContext()).apply {
-            text = "Restaurar Backup"
-            setOnClickListener {
-                lifecycleScope.launch {
-                    FirebaseRepository.restoreBackupSnapshot(
-                        onResult = { routines, sessions ->
-                            lifecycleScope.launch {
-                                try {
-                                    val db = DatabaseProvider.getDatabase(requireContext())
-                                    db.routineDao().deleteAllRoutines()
-                                    db.sessionDao().deleteAllSessions()
-                                    routines.forEach { db.routineDao().insertRoutine(it) }
-                                    sessions.forEach { db.sessionDao().insertSession(it) }
+        val restore = crearBoton("Restaurar Backup") {
+            lifecycleScope.launch {
+                FirebaseRepository.restoreBackupSnapshot(
+                    onResult = { routines, sessions ->
+                        lifecycleScope.launch {
+                            try {
+                                val db = DatabaseProvider.getDatabase(requireContext())
+                                db.routineDao().deleteAllRoutines()
+                                db.sessionDao().deleteAllSessions()
+                                routines.forEach { db.routineDao().insertRoutine(it) }
+                                sessions.forEach { db.sessionDao().insertSession(it) }
 
-                                    Toast.makeText(requireContext(), "✅ Backup restaurado", Toast.LENGTH_SHORT).show()
-                                    actualizarVista()
-                                } catch (e: Exception) {
-                                    Toast.makeText(requireContext(), "❌ Error al guardar en Room: ${e.message}", Toast.LENGTH_LONG).show()
-                                }
+                                Toast.makeText(requireContext(), "✅ Backup restaurado", Toast.LENGTH_SHORT).show()
+                                actualizarVista()
+                            } catch (e: Exception) {
+                                Toast.makeText(requireContext(), "❌ Error al guardar en Room: ${e.message}", Toast.LENGTH_LONG).show()
                             }
-                        },
-                        onFailure = {
-                            Toast.makeText(requireContext(), "❌ Error al restaurar backup: ${it.message}", Toast.LENGTH_LONG).show()
                         }
-                    )
-                }
+                    },
+                    onFailure = {
+                        Toast.makeText(requireContext(), "❌ Error al restaurar backup: ${it.message}", Toast.LENGTH_LONG).show()
+                    }
+                )
             }
         }
 
