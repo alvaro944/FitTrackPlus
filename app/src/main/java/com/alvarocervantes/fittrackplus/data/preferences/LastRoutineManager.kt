@@ -30,5 +30,16 @@ object LastRoutineManager {
     fun isRoutineSelected(context: Context, routineId: Long): Boolean {
         return getLastRoutineId(context) == routineId
     }
-}
 
+    fun saveCurrentDayIndex(context: Context, routineId: Long, dayIndex: Int) {
+        val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        prefs.edit()
+            .putInt("current_day_index_$routineId", dayIndex)
+            .apply()
+    }
+
+    fun getCurrentDayIndex(context: Context, routineId: Long): Int {
+        val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return prefs.getInt("current_day_index_$routineId", 0)
+    }
+}
