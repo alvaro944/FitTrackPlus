@@ -1,33 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextRoutineName"
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nueva rutina"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
+    <View
+        android:layout_width="80dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/acento" />
+
+    <!-- Campo nombre de la rutina -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/routineNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre de la rutina"
-        android:inputType="textCapWords" />
+        style="@style/FitTrackPlus.EditTextLayout.FilledBox"
+        app:boxBackgroundMode="filled"
+        app:errorEnabled="true"
+        android:layout_marginTop="12dp">
 
-    <NumberPicker
-        android:id="@+id/numberPickerDays"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextRoutineName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:maxLines="1"
+            style="@style/FitTrackPlus.EditText.FilledBox" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Slider para seleccionar días -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="1"
+        android:valueTo="15"
+        android:stepSize="1"
+        style="@style/FitTrackPlus.Slider.Acento"
+        android:layout_marginTop="16dp" />
+
+    <!-- Controles + y - con el valor visible -->
+    <LinearLayout
+        android:id="@+id/layoutCustomStepper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
 
-    <Button
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonDecrease"
+            style="@style/FitTrackPlus.StepperButton"
+            android:text="−" />
+
+        <TextView
+            android:id="@+id/textDaysSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/negro" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonIncrease"
+            style="@style/FitTrackPlus.StepperButton"
+            android:text="+" />
+    </LinearLayout>
+
+    <!-- Botones de acción -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonContinue"
+        style="@style/FitTrackPlus.SecondaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Continuar"
         android:layout_marginTop="32dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCancel"
+        style="@style/FitTrackPlus.SecondaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cancelar"

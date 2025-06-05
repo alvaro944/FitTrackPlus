@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/FitTrackPlus.Card"
     android:id="@+id/cardRoutine"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="6dp"
-    android:layout_marginHorizontal="12dp"
-    android:padding="16dp"
-    android:background="?attr/selectableItemBackground">
+    android:layout_marginBottom="5dp">
 
 
     <LinearLayout
@@ -17,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:weightSum="10">
+        android:weightSum="10"
+        android:padding="10dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -49,22 +46,22 @@
             android:orientation="horizontal"
             android:gravity="end">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonEditRoutine"
+                style="@style/FitTrackPlus.SecondaryButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="✏️"
-                android:padding="0dp"/>
+                android:text="✏️" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDeleteRoutine"
+                style="@style/FitTrackPlus.SecondaryButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="🗑️"
-                android:padding="0dp"/>
+                android:text="🗑️" />
         </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

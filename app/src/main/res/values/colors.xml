@@ -3,6 +3,7 @@
     <color name="base">#F5F5F5</color>             <!-- Fondo general (60%) -->
     <color name="primario">#1976D2</color>         <!-- Azul funcional (30%) -->
     <color name="acento">#FB8C00</color>           <!-- Naranja acción (10%) -->
+    <color name="rojo">#CA141A</color>              <!-- Rojo error -->
 
     <!-- Colores neutros -->
     <color name="blanco">#FFFFFF</color>           <!-- Blanco puro -->

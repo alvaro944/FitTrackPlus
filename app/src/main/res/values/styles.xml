@@ -13,4 +13,59 @@
         <item name="rippleColor">@color/azul_claro</item>
     </style>
 
+    <style name="FitTrackPlus.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:backgroundTint">@color/blanco</item>
+        <item name="strokeColor">@color/primario</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="FitTrackPlus.SecondaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primario</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:paddingVertical">6dp</item>
+    </style>
+
+    <!-- Renombrado para que pueda aplicarse con style="@style/FitTrackPlus.EditTextLayout.FilledBox" -->
+    <style name="FitTrackPlus.EditTextLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/blanco</item>
+        <item name="boxStrokeColor">@color/primario</item>
+        <item name="hintTextAppearance">@color/acento</item>
+        <item name="helperTextTextAppearance">@color/acento</item>
+        <item name="errorTextAppearance">@color/rojo</item>
+    </style>
+
+    <style name="FitTrackPlus.EditText.FilledBox" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textColorHint">@color/gris_texto</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="FitTrackPlus.StepperButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item> <!-- Totalmente redondo (48dp botón / 2) -->
+        <item name="backgroundTint">@color/acento</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="elevation">4dp</item>
+    </style>
+
+    <style name="FitTrackPlus.Slider.Acento" parent="Widget.MaterialComponents.Slider">
+        <item name="trackColorActive">@color/acento</item>
+        <item name="trackColorInactive">@color/gris_texto</item>
+        <item name="thumbColor">@color/acento</item>
+        <item name="haloColor">@color/acento</item>
+        <item name="tickColorActive">@color/acento</item>
+        <item name="tickColorInactive">@color/gris_texto</item>
+        <item name="trackHeight">6dp</item>
+        <item name="thumbRadius">10dp</item>
+        <item name="haloRadius">14dp</item>
+    </style>
 </resources>

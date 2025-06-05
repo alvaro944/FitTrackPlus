@@ -16,13 +16,12 @@
 
         <!-- 🟦 Frase motivacional -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/FitTrackPlus.Card"
             android:id="@+id/cardMotivational"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
             android:backgroundTint="@color/azul_claro">
 
             <LinearLayout
@@ -103,18 +102,18 @@
 
         <!-- 🟨 Resumen rutina activa -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/FitTrackPlus.Card"
             android:id="@+id/cardResumenRutina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            android:padding="16dp"
             android:layout_marginBottom="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
+
 
                 <TextView
                     android:id="@+id/textResumenRutina"

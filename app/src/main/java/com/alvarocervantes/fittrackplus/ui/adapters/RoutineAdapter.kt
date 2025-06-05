@@ -46,9 +46,15 @@ class RoutineAdapter(
         holder.textName.setTypeface(null, if (isSelected) Typeface.BOLD else Typeface.NORMAL)
         holder.textName.textSize = if (isSelected) 18f else 16f
 
-        holder.cardView.setBackgroundResource(
-            if (isSelected) R.drawable.card_selected_background else android.R.color.transparent
-        )
+        // 🟠 Borde de la tarjeta
+        if (holder.cardView is com.google.android.material.card.MaterialCardView) {
+            val card = holder.cardView as com.google.android.material.card.MaterialCardView
+            card.strokeColor = if (isSelected)
+                context.getColor(R.color.acento) // secundario si está seleccionada
+            else
+                context.getColor(R.color.primario)
+        }
+
 
         holder.cardView.setOnClickListener {
             if (isSelected) {
