@@ -1,25 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollCreateRoutine"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- ✅ Solo un hijo: este LinearLayout -->
     <LinearLayout
-        android:id="@+id/containerRoutineDays"
+        android:id="@+id/containerFullRoutine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:divider="?android:attr/dividerVertical"
-        android:showDividers="middle">
+        android:padding="16dp">
 
-        <Button
+        <!-- Título con nombre de rutina -->
+        <TextView
+            android:id="@+id/textRoutineTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre rutina aquí"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/negro"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Línea decorativa -->
+        <View
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/acento"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Contenedor de días -->
+        <LinearLayout
+            android:id="@+id/containerRoutineDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="?android:attr/dividerVertical"
+            android:showDividers="middle" />
+
+        <!-- Botón guardar rutina (al final visual) -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonSaveRoutine"
+            style="@style/FitTrackPlus.SecondaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar rutina"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            app:icon="@drawable/ic_save_24"
+            android:backgroundTint="@color/acento"
+            android:tint="@color/acento"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 </ScrollView>

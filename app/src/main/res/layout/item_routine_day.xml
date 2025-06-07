@@ -1,41 +1,52 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@android:color/darker_gray"
-    android:padding="12dp"
     android:layout_marginBottom="24dp"
-    android:elevation="2dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/primario">
 
-    <!-- Nombre del día de la rutina -->
-    <EditText
-        android:id="@+id/editTextDayName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Día de entrenamiento (ej: Push)"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:inputType="textCapWords"
-        android:background="@android:color/white"
-        android:padding="10dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Contenedor donde se agregan ejercicios -->
     <LinearLayout
-        android:id="@+id/containerExercises"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:divider="?android:attr/dividerVertical"
-        android:showDividers="middle"
-        android:layout_marginBottom="16dp" />
+        android:padding="16dp">
 
-    <!-- Botón para añadir ejercicio -->
-    <Button
-        android:id="@+id/buttonAddExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+ Añadir ejercicio"
-        android:layout_gravity="end" />
-</LinearLayout>
+
+        <!-- Nombre del día -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputDayName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del día (ej: Push)"
+            style="@style/FitTrackPlus.EditTextLayout.FilledBox">
+
+            <EditText
+                android:id="@+id/editTextDayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Contenedor de ejercicios -->
+        <LinearLayout
+            android:id="@+id/containerExercises"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp" />
+
+        <!-- Botón añadir ejercicio -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAddExercise"
+            style="@style/FitTrackPlus.SecondaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Añadir ejercicio"
+            android:layout_gravity="end"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

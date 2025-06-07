@@ -36,6 +36,7 @@ class CreateRoutineFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_create_routine, container, false)
         val containerLayout = view.findViewById<LinearLayout>(R.id.containerRoutineDays)
         val buttonSave = view.findViewById<Button>(R.id.buttonSaveRoutine)
+        val textRoutineTitle = view.findViewById<TextView>(R.id.textRoutineTitle)
 
         if (routineIdToEdit != -1L) {
             lifecycleScope.launch {
@@ -43,6 +44,8 @@ class CreateRoutineFragment : Fragment() {
                 val days = viewModel.getDaysForRoutine(routineIdToEdit)
 
                 routineName = routine?.name ?: routineName
+                textRoutineTitle.text = routineName
+                textRoutineTitle.visibility = View.VISIBLE
                 numberOfDays = days.size
 
                 for ((index, day) in days.withIndex()) {
@@ -60,6 +63,9 @@ class CreateRoutineFragment : Fragment() {
                 }
             }
         } else {
+            textRoutineTitle.text = routineName
+            textRoutineTitle.visibility = View.VISIBLE
+
             for (i in 1..numberOfDays) {
                 val dayLayout = createDayLayout("Sesión $i")
                 containerLayout.addView(dayLayout)
@@ -129,11 +135,17 @@ class CreateRoutineFragment : Fragment() {
 
     private fun createDayLayout(dayHint: String): View {
         val dayLayout = layoutInflater.inflate(R.layout.item_routine_day, null, false)
+
         val editDayName = dayLayout.findViewById<EditText>(R.id.editTextDayName)
+        val inputLayout = dayLayout.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.textInputDayName)
         val buttonAddExercise = dayLayout.findViewById<Button>(R.id.buttonAddExercise)
         val containerExercises = dayLayout.findViewById<LinearLayout>(R.id.containerExercises)
 
-        editDayName.hint = dayHint
+        if (editDayName.text.isNullOrBlank()) {
+            editDayName.setText(dayHint)
+            inputLayout.isHintEnabled = false
+            inputLayout.isHintEnabled = true
+        }
 
         buttonAddExercise.setOnClickListener {
             val exerciseInput = createExerciseInput()
@@ -154,15 +166,11 @@ class CreateRoutineFragment : Fragment() {
         seriesInput.setText(series)
         repsInput.setText(reps)
 
-        val buttonDelete = Button(requireContext()).apply {
-            text = "Eliminar"
-            setOnClickListener {
-                val parent = exerciseInput.parent as? LinearLayout
-                parent?.removeView(exerciseInput)
-            }
+        val deleteButton = exerciseInput.findViewById<ImageButton>(R.id.buttonDeleteExercise)
+        deleteButton.setOnClickListener {
+            val parent = exerciseInput.parent as? LinearLayout
+            parent?.removeView(exerciseInput)
         }
-
-        (exerciseInput as ViewGroup).addView(buttonDelete)
 
         return exerciseInput
     }

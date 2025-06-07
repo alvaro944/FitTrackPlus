@@ -27,12 +27,6 @@
         android:layout_height="wrap_content"
         android:text="Registrar Entrenamiento"
         android:layout_marginBottom="16dp" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnGoToTestMaterial"
-        style="@style/FitTrackPlus.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver test botón" />
 
     <!-- Lista de rutinas -->
     <androidx.recyclerview.widget.RecyclerView
