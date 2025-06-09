@@ -93,7 +93,9 @@ class AddTrainingFragment : Fragment() {
                 onDeleteClick = { routine ->
                     lifecycleScope.launch {
                         viewModel.deleteRoutine(routine)
-                        loadRoutines() // ← refresca después de borrar
+                        recyclerView.post {
+                            loadRoutines() // ← refresca después de borrar
+                        }
                         Toast.makeText(requireContext(), "Rutina eliminada", Toast.LENGTH_SHORT).show()
                     }
                 }

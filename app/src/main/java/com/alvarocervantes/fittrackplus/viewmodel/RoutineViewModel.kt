@@ -24,38 +24,36 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
     suspend fun getExercisesForDay(dayId: Long) = routineDao.getExercisesForDay(dayId)
 
 
-    fun insertRoutineWithDaysAndExercises(
+    suspend fun insertRoutineWithDaysAndExercises(
         routineName: String,
-        days: List<Pair<String, List<Triple<String, Int, String>>>> // Día, lista de ejercicios: (nombre, series, repObj)
-    ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val routineId = routineDao.insertRoutine(RoutineEntity(name = routineName))
-            val routine = RoutineEntity(name = routineName, id = routineId)
-            FirebaseRepository.uploadRoutine(routine)
+        days: List<Pair<String, List<Triple<String, Int, String>>>>
+    ): Long {
+        val routineId = routineDao.insertRoutine(RoutineEntity(name = routineName))
+        val routine = RoutineEntity(name = routineName, id = routineId)
+        FirebaseRepository.uploadRoutine(routine)
 
+        days.forEachIndexed { index, (dayName, exercises) ->
+            val dayId = routineDao.insertDay(
+                RoutineDayEntity(
+                    routineId = routineId,
+                    dayName = dayName.ifBlank { "Sesión ${index + 1}" },
+                    dayOrder = index + 1
+                )
+            )
 
-            days.forEachIndexed { index, (dayName, exercises) ->
-                val dayId = routineDao.insertDay(
-                    RoutineDayEntity(
-                        routineId = routineId,
-                        dayName = dayName.ifBlank { "Sesión ${index + 1}" },
-                        dayOrder = index + 1
+            exercises.forEach { (exerciseName, series, repsObj) ->
+                routineDao.insertExercise(
+                    ExerciseEntity(
+                        dayId = dayId,
+                        name = exerciseName,
+                        series = series,
+                        reps = repsObj
                     )
                 )
-
-                exercises.forEach { (exerciseName, series, repsObj) ->
-                    routineDao.insertExercise(
-                        ExerciseEntity(
-                            dayId = dayId,
-                            name = exerciseName,
-                            series = series,
-                            reps = repsObj
-                        )
-                    )
-                    // repsObj lo podemos guardar después si se expande el modelo
-                }
             }
         }
+
+        return routineId
     }
     suspend fun getRoutinesWithDays(): List<Pair<RoutineEntity, Int>> {
         val routines = routineDao.getAllRoutines()

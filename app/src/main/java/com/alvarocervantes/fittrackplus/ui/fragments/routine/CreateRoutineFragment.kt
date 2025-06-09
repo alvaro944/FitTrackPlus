@@ -124,7 +124,9 @@ class CreateRoutineFragment : Fragment() {
                 if (routineIdToEdit != -1L) {
                     viewModel.updateRoutineWithNewDaysAndExercises(routineIdToEdit, daysList)
                 } else {
-                    viewModel.insertRoutineWithDaysAndExercises(routineName, daysList)
+                    val newRoutineId = viewModel.insertRoutineWithDaysAndExercises(routineName, daysList)
+                    val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
+                    prefs.edit().putLong("last_gym_routine_id", newRoutineId).apply()
                 }
                 findNavController().popBackStack(R.id.addTrainingFragment, false)
             }

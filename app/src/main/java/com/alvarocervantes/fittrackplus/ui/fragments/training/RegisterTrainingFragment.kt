@@ -34,8 +34,13 @@ class RegisterTrainingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            routineId = it.getLong("routineId", -1L)
+
+        routineId = arguments?.getLong("routineId", -1L) ?: -1L
+
+        // Si no se pasa rutinaId, lo buscamos en SharedPreferences
+        if (routineId == -1L) {
+            val prefs = requireContext().getSharedPreferences("fittrack_prefs", android.content.Context.MODE_PRIVATE)
+            routineId = prefs.getLong("last_gym_routine_id", -1L)
         }
     }
 

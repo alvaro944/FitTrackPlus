@@ -48,6 +48,24 @@ class HomeFragment : Fragment() {
             }
         }
 
+        val buttonVerRutinas = view.findViewById<Button>(R.id.buttonVerRutinas)
+        buttonVerRutinas.setOnClickListener {
+            findNavController().navigate(R.id.addTrainingFragment)
+        }
+
+        val buttonEntrenarAhora = view.findViewById<Button>(R.id.buttonEntrenarAhora)
+        buttonEntrenarAhora.setOnClickListener {
+            val routineId = LastRoutineManager.getLastRoutineId(requireContext())
+            if (routineId != -1L) {
+                val bundle = Bundle().apply {
+                    putLong("routineId", routineId)
+                }
+                findNavController().navigate(R.id.registerTrainingFragment, bundle)
+            } else {
+                Toast.makeText(requireContext(), "❗Selecciona una rutina primero", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         cargarFraseMotivacionalDesdeAssets(view)
     }
 
