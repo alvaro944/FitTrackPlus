@@ -46,6 +46,9 @@ interface SessionDao {
     @Query("SELECT * FROM sessions WHERE id = :sessionId")
     suspend fun getSessionById(sessionId: Long): SessionEntity?
 
+    @Query("SELECT * FROM sessions WHERE routineId = :routineId ORDER BY date DESC LIMIT 1")
+    suspend fun getLastSessionOfRoutine(routineId: Long): SessionEntity?
 }
+
 
 

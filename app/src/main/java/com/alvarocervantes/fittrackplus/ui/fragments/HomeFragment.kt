@@ -63,11 +63,9 @@ class HomeFragment : Fragment() {
                     val routine = routineVM.getRoutineById(routineId)
                     val routineName = routine?.name ?: "Rutina activa"
 
-                    // ✅ Obtener el día que toca hoy de forma precisa
                     val nextDay = registerVM.getNextRoutineDay(routineId)
                     val todayDay = nextDay?.dayName ?: "Día desconocido"
 
-                    // ✅ Obtener la última sesión por ID (más fiable)
                     sessionVM.setRoutineId(routineId)
                     val sesiones = sessionVM.getTrainingHistory()
                     val ultimaSesion = sesiones.maxByOrNull { it.first.id }

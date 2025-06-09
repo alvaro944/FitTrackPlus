@@ -1,33 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollRegisterTraining"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/blanco">
 
     <LinearLayout
         android:id="@+id/containerRegisterTraining"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- 🆕 Encabezado informativo de rutina y día -->
-        <TextView
-            android:id="@+id/textTrainingHeader"
+        <!-- Encabezado H1 dividido en dos líneas -->
+        <LinearLayout
+            android:id="@+id/containerTrainingHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Entrenando: "
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
+            android:orientation="vertical"
             android:layout_marginBottom="16dp"
-            android:visibility="gone"/>
+            android:visibility="gone">
 
-        <!-- Ejercicios se generan dinámicamente aquí -->
+            <!-- Línea 1: Nombre de la rutina -->
+            <TextView
+                android:id="@+id/textRoutineTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entrenando: ..."
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/negro"
+                android:paddingBottom="4dp" />
 
-        <Button
+            <!-- Línea 2: Día y semana -->
+            <TextView
+                android:id="@+id/textSessionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sesión: ..."
+                android:textSize="16sp"
+                android:textColor="@color/negro" />
+
+            <!-- Línea decorativa -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/acento" />
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonSaveTraining"
+            style="@style/FitTrackPlus.SecondaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar entrenamiento"
-            android:layout_marginTop="24dp"/>
+            android:text="Registrar entrenamiento"
+            android:textAllCaps="false"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            app:icon="@drawable/ic_save_24"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart"
+            app:iconTint="@color/blanco"
+            app:backgroundTint="@color/acento"
+            android:textColor="@color/blanco" />
     </LinearLayout>
 </ScrollView>
